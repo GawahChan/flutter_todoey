@@ -13,20 +13,30 @@ class TodoList extends StatelessWidget {
   Widget build(BuildContext context) {
     final todoCubit = context.read<TodosCubit>();
 
-    return ListView.builder(
-        itemCount: todoListState.length,
-        itemBuilder: (context, index) {
-          final todo = todoListState[index];
-          return TodoTile(
-            taskTitle: todo.name,
-            isChecked: todo.isDone,
-            checkboxCallback: (checkboxState) {
-              todoCubit.toggleCompletion(todo);
-            },
-            longPressCallback: () {
-              todoCubit.deleteTodo(todo);
-            },
-          );
-        });
+    return Expanded(
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20.0), topRight: Radius.circular(20.0)),
+        ),
+        child: ListView.builder(
+            itemCount: todoListState.length,
+            itemBuilder: (context, index) {
+              final todo = todoListState[index];
+              return TodoTile(
+                taskTitle: todo.name,
+                isChecked: todo.isDone,
+                checkboxCallback: (checkboxState) {
+                  todoCubit.toggleCompletion(todo);
+                },
+                longPressCallback: () {
+                  todoCubit.deleteTodo(todo);
+                },
+              );
+            }),
+      ),
+    );
   }
 }
