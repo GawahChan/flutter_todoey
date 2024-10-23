@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_todoey/models/task_data.dart';
-import 'package:provider/provider.dart';
 
-class AddTaskScreen extends StatelessWidget {
-  const AddTaskScreen({super.key});
+class AddTodosScreen extends StatelessWidget {
+  const AddTodosScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -45,8 +43,7 @@ class AddTaskScreen extends StatelessWidget {
                     foregroundColor: Colors.white,
                     backgroundColor: Colors.lightBlueAccent),
                 onPressed: () {
-                  Provider.of<TaskData>(context, listen: false)
-                      .addTask(newTaskTitle);
+                  // TODO for adding a task
                   Navigator.pop(context);
                 },
                 child: const Text("Add"))

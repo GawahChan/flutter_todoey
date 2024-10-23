@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_todoey/models/task_data.dart';
-import 'package:flutter_todoey/screens/tasks_screen.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_todoey/presentation/screens/todos_screen.dart';
+import 'package:flutter_todoey/presentation/todo_cubit.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,10 +12,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => TaskData(),
+    return BlocProvider(
+      create: (context) => TodosCubit(),
       child: const MaterialApp(
-        home: TasksScreen(),
+        home: TodosScreen(),
       ),
     );
   }
