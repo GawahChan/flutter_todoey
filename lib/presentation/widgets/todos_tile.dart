@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class TodoTile extends StatelessWidget {
+class TodosTile extends StatelessWidget {
   final String taskTitle;
   final bool isChecked;
   final ValueChanged<bool?> checkboxCallback;
   final GestureLongPressCallback longPressCallback;
 
-  const TodoTile({
+  const TodosTile({
     super.key,
     required this.taskTitle,
     required this.isChecked,
