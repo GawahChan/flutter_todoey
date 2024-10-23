@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_todoey/presentation/todo_cubit.dart';
 
 class AddTodosScreen extends StatelessWidget {
   const AddTodosScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final todosCubit = context.read<TodosCubit>();
     String newTaskTitle = "";
 
     return Container(
@@ -43,7 +46,7 @@ class AddTodosScreen extends StatelessWidget {
                     foregroundColor: Colors.white,
                     backgroundColor: Colors.lightBlueAccent),
                 onPressed: () {
-                  // TODO for adding a task
+                  todosCubit.addTodos(newTaskTitle);
                   Navigator.pop(context);
                 },
                 child: const Text("Add"))
